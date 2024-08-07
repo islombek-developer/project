@@ -11,7 +11,7 @@ class Teacher(models.Model):
     date_of = models.DateField(null=True,blank=True )
 
     def __str__(self):
-        return self.user.username
+        return self.first_name
 
     
 
@@ -53,13 +53,10 @@ class Lesson(models.Model):
 class Homework(models.Model):
     lesson = models.OneToOneField(Lesson, on_delete=models.CASCADE, related_name='homework')
     team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True, blank=True, related_name='homeworks')
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='students')
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
     description = models.TextField()
-    homework_file = models.FileField(upload_to='homeworks', blank=True, null=True)
+    homework_file = models.FileField(upload_to='homework_file', blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ['student', 'team']
-
     def __str__(self):
-        return f"{self.student.user.first_name}-- {self.lesson.title}"
+        return self.lesson.title
+
