@@ -1,10 +1,7 @@
 from django.contrib import admin
-from .models import Teacher,Team,Student,Lesson,Homework
+from .models import Xodimlar,Davomat
 
 
 
-admin.site.register(Team)
-admin.site.register(Student)
-admin.site.register(Teacher)
-admin.site.register(Homework)
-admin.site.register(Lesson)
+admin.site.register(Xodimlar)
+admin.site.register(Davomat)

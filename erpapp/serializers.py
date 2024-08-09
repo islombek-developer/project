@@ -1,23 +1,12 @@
 from rest_framework import serializers
-from .models import Teacher,Team,Student,Homework,Lesson
+from .models import Xodimlar,Davomat
 
-class TeacherSerializers(serializers.ModelSerializer):
+class XodimlarSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Teacher
+        model = Xodimlar
         fields = '__all__'
 
-class StudentSerializers(serializers.ModelSerializer):
+class DavomatSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Student
-        fields = '__all__'
-
-class HomeworkSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = Homework
-        fields = '__all__'
-
-
-class LessonSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = Lesson
+        model = Davomat
         fields = '__all__'
